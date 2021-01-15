@@ -198,7 +198,7 @@ class TransportFieldsModel(models.Model):
 
     vin_code = models.CharField(max_length=32, unique=True, blank=True, null=True, verbose_name='Vin Code')
     show_vin_code = models.BooleanField(default=True)
-    country = models.ForeignKey(CountryModel, on_delete=models.CASCADE)
+    country = models.ForeignKey(CountryModel, on_delete=models.CASCADE, blank=True, null=True,)
     region_name = models.ForeignKey(RegionModel, on_delete=models.CASCADE)
     region_child = models.ForeignKey(RegionChildModel, on_delete=models.CASCADE)
     man_country = models.ForeignKey(ManufacturerCountry, on_delete=models.CASCADE)
@@ -235,9 +235,9 @@ class TransportFieldsModel(models.Model):
     price = models.DecimalField(max_digits=19, decimal_places=2, verbose_name='Գին')
     price_type = models.CharField(max_length=50, choices=PriceType.choices,
                                   default=PriceType.AMD)
-    mileage = models.CharField(max_length=50, choices=ChoiceDescLanguage.choices,
+    desc_language = models.CharField(max_length=50, choices=ChoiceDescLanguage.choices,
                                default=ChoiceDescLanguage.AM)
-    description = models.TextField(verbose_name='Նկարագրել')
+    description = models.TextField(verbose_name='Նկարագրել', blank=True, null=True,)
     hashtag = models.CharField(max_length=255, blank=True, verbose_name='Գաղտնի որոնում')
     contact = models.CharField(max_length=33, verbose_name='Կոնտակտ')
     contact_type = models.CharField(max_length=32, choices=ChoiceContact.choices,
@@ -246,7 +246,7 @@ class TransportFieldsModel(models.Model):
                                      default=ChoiceExchangeBuy.BUY)
     exchange = models.BooleanField(default=False, verbose_name='Փոխանակում')
     dealer = models.BooleanField(default=False, verbose_name='Դիլլեր')
-    created_at = models.DateTimeField(auto_now=True, verbose_name="don't touch")
+    created_at = models.DateTimeField(auto_now=True, verbose_name="don't touch", blank=True, null=True,)
 
     def __str__(self):
         return str('Ավտոմեքենաներ')
