@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import *
+from transport_accid.models import *
 
-admin.site.register(TransportFieldsModel)
+admin.site.register(TransportAccidModel)
 admin.site.register(CountryModel)
 admin.site.register(RegionModel)
 admin.site.register(RegionChildModel)

@@ -170,7 +170,7 @@ class DriveUnit(models.Model):
         verbose_name_plural = "Քարշակ"
 
 
-class TransportFieldsModel(models.Model):
+class TransportAccidModel(models.Model):
     class ChoiceMileageType(models.TextChoices):
         KM = 'km'
         ML = 'ml'
