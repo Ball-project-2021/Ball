@@ -37,13 +37,17 @@ class RegionChildModel(models.Model):
         verbose_name_plural = "Տարածաշրջան-Raion"
 
 
+class ManufacturerCountry(models.Model):
+    man_country = models.CharField(max_length=30, verbose_name='Արտադրման երկիր')
 
-    def __str__(self):
-        return self.man_country
 
-    class Meta:
-        verbose_name = "Արտադրման երկիր"
-        verbose_name_plural = "Արտադրման երկիր"
+def __str__(self):
+    return self.man_country
+
+
+class Meta:
+    verbose_name = "Արտադրման երկիր"
+    verbose_name_plural = "Արտադրման երկիր"
 
 
 class CarBrand(models.Model):
@@ -69,8 +73,6 @@ class CarModel(models.Model):
         verbose_name_plural = "Մոդել"
 
 
-
-
 class ProductYear(models.Model):
     product_year = models.CharField(max_length=32, verbose_name='Տարի')
 
@@ -80,9 +82,6 @@ class ProductYear(models.Model):
     class Meta:
         verbose_name = "Տարի"
         verbose_name_plural = "Տարի"
-
-
-
 
 
 class Transmission(models.Model):
@@ -187,7 +186,7 @@ class TransportFieldsModel(models.Model):
     price_type = models.CharField(max_length=50, choices=PriceType.choices,
                                   default=PriceType.AMD)
     desc_language = models.CharField(max_length=50, choices=ChoiceDescLanguage.choices,
-                               default=ChoiceDescLanguage.AM)
+                                     default=ChoiceDescLanguage.AM)
     description = models.TextField(verbose_name='Նկարագրել', blank=True, null=True)
     hashtag = models.CharField(max_length=255, verbose_name='Գաղտնի որոնում', blank=True, null=True)
     contact = models.CharField(max_length=33, verbose_name='Կոնտակտ')
