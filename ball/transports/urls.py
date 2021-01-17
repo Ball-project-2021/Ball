@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import TransportsView
+from . import views
 
 urlpatterns = [
-    path('all', TransportsView.as_view())
+    path('transports/', views.TransportListView.as_view()),
+    path('transport/<int:pk>/', views.TransportDetailView.as_view()),
 ]
