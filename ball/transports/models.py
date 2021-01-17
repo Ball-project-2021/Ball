@@ -170,6 +170,18 @@ class DriveUnit(models.Model):
         verbose_name_plural = "Քարշակ"
 
 
+class ContactCode(models.Model):
+    code = models.CharField(max_length=12)
+    cod_country = models.ForeignKey(CountryModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.code}{self.cod_country}'
+
+    class Meta:
+        verbose_name = 'Երկրի կոդ'
+        verbose_name_plural = "Երկրների կոդեր"
+
+
 class TransportFieldsModel(models.Model):
     class ChoiceMileageType(models.TextChoices):
         KM = 'km'
@@ -216,7 +228,6 @@ class TransportFieldsModel(models.Model):
     millage_int = models.IntegerField(verbose_name='Վազք')
     mileage = models.CharField(max_length=50, choices=ChoiceMileageType.choices, default=ChoiceMileageType.KM,
                                verbose_name='Վազք-type')
-    price = models.DecimalField(max_digits=19, decimal_places=2, verbose_name='Գին')
     photo_main = models.ImageField(upload_to='photos/transport/%Y/%m/%d/')
     photo_1 = models.ImageField(upload_to='photos/transport/%Y/%m/%d/', blank=True)
     photo_2 = models.ImageField(upload_to='photos/transport/%Y/%m/%d/', blank=True)
@@ -236,6 +247,7 @@ class TransportFieldsModel(models.Model):
                                      default=ChoiceDescLanguage.AM)
     description = models.TextField(verbose_name='Նկարագրել', blank=True, null=True)
     hashtag = models.CharField(max_length=255, blank=True, verbose_name='Գաղտնի որոնում')
+    contact_code = models.ForeignKey(ContactCode, on_delete=models.CASCADE, default=None)
     contact = models.CharField(max_length=33, verbose_name='Կոնտակտ')
     contact_type = models.CharField(max_length=32, choices=ChoiceContact.choices,
                                     verbose_name='Կոնտակտ_type')
@@ -249,8 +261,3 @@ class TransportFieldsModel(models.Model):
     class Meta:
         verbose_name = "ՏՐԱՆՍՊՈՐՏ"
         verbose_name_plural = "ՏՐԱՆՍՊՈՐՏ"
-
-
-class ContactCode(models.Model):
-    code = models.CharField(max_length=12)
-    cod_country = models.ForeignKey(CountryModel, on_delete=models.CASCADE)

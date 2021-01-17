@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'transport_parts',  # vtarvac / vorpes pahestamas
     'transports_will_buy',  # kgnem
     'user',  # user login adn register
+    'WHEELS', # anvahecer
 ]
 
 MIDDLEWARE = [

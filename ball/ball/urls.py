@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/transports/', include('transports.urls')),
     path('api/transportsaccid/', include('transport_accid.urls')),
     path('api/transports_will_buy/', include('transports_will_buy.urls')),
+    path('api/wheels/', include('WHEELS.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # urlpatterns +=[re_path(r'^.*', TemplateView.as_view(template_name='index.js'))]
