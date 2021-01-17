@@ -248,3 +248,8 @@ class TransportFieldsModel(models.Model):
     class Meta:
         verbose_name = "ՏՐԱՆՍՊՈՐՏ"
         verbose_name_plural = "ՏՐԱՆՍՊՈՐՏ"
+
+
+class ContactCode(models.Model):
+    code = models.CharField(max_length=12)
+    cod_country = models.ForeignKey(CountryModel, on_delete=models.CASCADE)
