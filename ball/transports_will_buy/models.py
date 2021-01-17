@@ -172,6 +172,7 @@ class TransportFieldsModel(models.Model):
     steering = models.ForeignKey(Steering, on_delete=models.CASCADE)
     new = models.BooleanField(default=False, verbose_name='Նոր')
     color = models.ForeignKey(Color, on_delete=models.CASCADE)
+    millage_int = models.IntegerField(verbose_name='Վազք', null=True, default=None)
     mileage = models.CharField(max_length=50, choices=ChoiceMileageType.choices, default=ChoiceMileageType.KM,
                                verbose_name='Վազք-type')
     price = models.DecimalField(max_digits=19, decimal_places=2, verbose_name='Գին')

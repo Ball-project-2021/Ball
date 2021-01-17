@@ -10,7 +10,7 @@ class TransportWillBuyListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TransportFieldsModel
-        fields = ('id', 'brand', 'car_model', 'vin_code', 'price', 'product_year')
+        fields = ('id', 'brand', 'car_model', 'price', 'product_year')
 
 
 class TransportWillBuyDetailSerializer(serializers.ModelSerializer):
